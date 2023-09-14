@@ -29,9 +29,9 @@ library.push(book2);
 library.push(book3);
 library.push(book4);
 
-//console.table(library);
+console.table(library);
 
-//Write a function addBookToLibrary(book) that takes a book object and adds it to the library array
+//task 3 Write a function addBookToLibrary(book) that takes a book object and adds it to the library array
 
 function addBookToLibrary(book){
    library.push(book);
@@ -42,8 +42,8 @@ addBookToLibrary(book5);
 
 console.table(library);
 
-//Write a function checkoutBook(isbn) that takes an ISBN number,
-// searches the library for a book with that ISBN, and changes its checkedOut status to true.
+/* task 4 Write a function checkoutBook(isbn) that takes an ISBN number,
+searches the library for a book with that ISBN, and changes its checkedOut status to true.*/
 
 function checkoutBook(isbn){
    for (i=0 ; i<library.length ; i++){
@@ -60,8 +60,8 @@ function checkoutBook(isbn){
 
  console.table(library);
 
- //Write a function returnBook(isbn) that takes an ISBN number,
- // searches the library for a book with that ISBN, and changes its checkedOut status to false.
+ /* task 5 Write a function returnBook(isbn) that takes an ISBN number,
+ searches the library for a book with that ISBN, and changes its checkedOut status to false.*/
 
  function returnBook(isbn){
    for (i=0 ; i<library.length ; ++i){
@@ -80,8 +80,8 @@ returnBook(111111);
 
 console.table(library);
 
-//Write a function findBooksByAuthor(author) that takes an author's name
-// and returns an array of books written by that author.
+/* task 6 Write a function findBooksByAuthor(author) that takes an author's name
+ and returns an array of books written by that author.*/
 
 function findBooksByAuthor(author){
    let bookByAuthor = [];
