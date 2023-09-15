@@ -12,6 +12,7 @@ function createBook(book_title, book_author, book_ISBN){
         book_ISBN,
         checkOutStatus : false,
         checkOutCount : 0,
+        dueDate : null,
      }
      console.table(book);
 
@@ -51,13 +52,15 @@ searches the library for a book with that ISBN, and changes its checkedOut statu
 
 // Advanced task 1 part 1 : When a book is checked out using checkoutBook(isbn), increment the count. If it exceeds MAX_CHECKOUTS, don’t allow the checkout and inform the user
 
-function checkoutBook(isbn){
-   for (i=0 ; i<library.length ; i++){
+function checkoutBook(isbn, dueDate){
+   for (i = 0 ; i < library.length ; i++){
       if (library[i].book_ISBN === isbn){
          library[i].checkOutCount += 1;
          if (library[i].checkOutCount <= MAX_CHECKOUTS){
          library[i].checkOutStatus = true;
+         library[i].dueDate = dueDate;
          console.log("book is checked out");
+       
          break;
       }else{
          console.log(`This book is already been checked ${MAX_CHECKOUTS+1}`);
@@ -71,11 +74,11 @@ function checkoutBook(isbn){
       }
    }
 }
- checkoutBook(111111);
- checkoutBook(111111);
- checkoutBook(111111);
- checkoutBook(111111);
- checkoutBook(111111);
+ checkoutBook(111111, "2012-01-12");
+ checkoutBook(111111, "2012-01-15");
+ checkoutBook(111111, "2012-01-16");
+ checkoutBook(111111, "2012-01-12");
+ checkoutBook(111111, "2012-01-12");
 
  console.table(library);
 
@@ -118,6 +121,26 @@ function findBooksByAuthor(author){
 }
 
 findBooksByAuthor("mr.x");
+
+// Add a property dueDate to each book that gets set when a book is checked out. Create a function listOverdueBooks() that returns books that are past their due date.
+
+
+function listOverdueBooks() {
+   const currentDate = new Date();
+   const overdueBooks = [];
+ 
+   for (const book of library) {
+     if (book.dueDate && currentDate > new Date(book.dueDate)) {
+       overdueBooks.push(book);
+     }
+   }
+
+   console.table(overdueBooks);
+ 
+   return overdueBooks;
+ }
+ 
+listOverdueBooks();
 
 
 
