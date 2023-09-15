@@ -16,6 +16,7 @@ function createBook(book_title, book_author, book_ISBN){
      return book;   
 }
 
+const MAX_CHECKOUTS = 3;
 const book1 = createBook("Story of my life", "Mr.x", 111111);
 const book2 = createBook("nodejs", "Mr.y", 222222);
 const book3 = createBook("javascript", "Mr.z", 333333);
@@ -49,14 +50,27 @@ searches the library for a book with that ISBN, and changes its checkedOut statu
 function checkoutBook(isbn){
    for (i=0 ; i<library.length ; i++){
       if (library[i].book_ISBN === isbn){
+         library[i].checkOutCount += 1;
+         if (library[i].checkOutCount <= MAX_CHECKOUTS){
          library[i].checkOutStatus = true;
          console.log("book is checked out");
          break;
+      }else{
+         console.log(`This book is already been checked ${MAX_CHECKOUTS+1}`);
+         library[i].checkOutCount -= 1;
+         library[i].checkOutStatus = false;
+         break;
+      }
+      break;
       }else{
          console.log('no any book with that isbn exist');
       }
    }
 }
+ checkoutBook(111111);
+ checkoutBook(111111);
+ checkoutBook(111111);
+ checkoutBook(111111);
  checkoutBook(111111);
 
  console.table(library);
