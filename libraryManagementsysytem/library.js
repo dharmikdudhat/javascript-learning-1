@@ -3,6 +3,8 @@ that takes in a book's title, author,
 and ISBN and returns an object with the given details 
 and a default checkedOut status of false.*/
 
+// Advanced task 1 part 1 : Each book can only be checked out a certain number of times. Add a property checkoutCount to each book and a constant MAX_CHECKOUTS (e.g., set to 3). 
+
 function createBook(book_title, book_author, book_ISBN){
      let book = {
         book_title,
@@ -46,6 +48,8 @@ console.table(library);
 
 /* task 4 Write a function checkoutBook(isbn) that takes an ISBN number,
 searches the library for a book with that ISBN, and changes its checkedOut status to true.*/
+
+// Advanced task 1 part 1 : When a book is checked out using checkoutBook(isbn), increment the count. If it exceeds MAX_CHECKOUTS, don’t allow the checkout and inform the user
 
 function checkoutBook(isbn){
    for (i=0 ; i<library.length ; i++){
