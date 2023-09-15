@@ -9,6 +9,7 @@ function createBook(book_title, book_author, book_ISBN){
         book_author,
         book_ISBN,
         checkOutStatus : false,
+        checkOutCount : 0,
      }
      console.table(book);
 
