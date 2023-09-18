@@ -5,11 +5,11 @@ and a default checkedOut status of false.*/
 
 // Advanced task 1 part 1 : Each book can only be checked out a certain number of times. Add a property checkoutCount to each book and a constant MAX_CHECKOUTS (e.g., set to 3). 
 
-function createBook(book_title, book_author, book_ISBN){
+function createBook(title, author, ISBN){
      let book = {
-        book_title,
-        book_author,
-        book_ISBN,
+        title,
+        author,
+        ISBN,
         checkOutStatus : false,
         checkOutCount : 0,
         dueDate : null,
@@ -54,7 +54,7 @@ searches the library for a book with that ISBN, and changes its checkedOut statu
 
 function checkoutBook(isbn, dueDate){
    for (i = 0 ; i < library.length ; i++){
-      if (library[i].book_ISBN === isbn){
+      if (library[i].ISBN === isbn){
          library[i].checkOutCount += 1;
          if (library[i].checkOutCount <= MAX_CHECKOUTS){
          library[i].checkOutStatus = true;
@@ -87,7 +87,7 @@ function checkoutBook(isbn, dueDate){
 
  function returnBook(isbn){
    for (i=0 ; i<library.length ; ++i){
-      if (library[i].book_ISBN === isbn){
+      if (library[i].ISBN === isbn){
          library[i].checkOutStatus = false;
          console.log("book is returned");
          break;
@@ -108,7 +108,7 @@ console.table(library);
 function findBooksByAuthor(author){
    let bookByAuthor = [];
    for (let j in library ){
-      if (library[j].book_author.toLowerCase() === author){
+      if (library[j].author.toLowerCase() === author){
          bookByAuthor.push(library[j]);
          break;
       }else{
