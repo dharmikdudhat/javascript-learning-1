@@ -53,32 +53,29 @@ searches the library for a book with that ISBN, and changes its checkedOut statu
 // Advanced task 1 part 1 : When a book is checked out using checkoutBook(isbn), increment the count. If it exceeds MAX_CHECKOUTS, don’t allow the checkout and inform the user
 
 function checkoutBook(isbn, dueDate){
-   for (i = 0 ; i < library.length ; i++){
-      if (library[i].ISBN === isbn){
-         library[i].checkOutCount += 1;
-         if (library[i].checkOutCount <= MAX_CHECKOUTS){
-         library[i].checkOutStatus = true;
-         library[i].dueDate = dueDate;
+   const bookToCheckOut = library.find((book) => book.ISBN === isbn);
+
+      if (bookToCheckOut.ISBN === isbn){
+         bookToCheckOut.checkOutCount += 1;
+         if (bookToCheckOut.checkOutCount <= MAX_CHECKOUTS){
+         bookToCheckOut.checkOutStatus = true;
+         bookToCheckOut.dueDate = dueDate;
          console.log("book is checked out");
-       
-         break;
       }else{
          console.log(`This book is already been checked ${MAX_CHECKOUTS+1}`);
-         library[i].checkOutCount -= 1;
-         library[i].checkOutStatus = false;
-         break;
+         bookToCheckOut.checkOutCount -= 1;
+         bookToCheckOut.checkOutStatus = false;
       }
-      break;
       }else{
          console.log('no any book with that isbn exist');
       }
-   }
-}
+    }
+
  checkoutBook(111111, "2012-01-12");
- checkoutBook(111111, "2012-01-15");
- checkoutBook(111111, "2012-01-16");
- checkoutBook(111111, "2012-01-12");
- checkoutBook(111111, "2012-01-12");
+//  checkoutBook(111111, "2012-01-15");
+//  checkoutBook(111111, "2012-01-16");
+//  checkoutBook(111111, "2012-01-12");
+//  checkoutBook(111111, "2012-01-12");
 
  console.table(library);
 
@@ -86,15 +83,15 @@ function checkoutBook(isbn, dueDate){
  searches the library for a book with that ISBN, and changes its checkedOut status to false.*/
 
  function returnBook(isbn){
-   for (i=0 ; i<library.length ; ++i){
-      if (library[i].ISBN === isbn){
-         library[i].checkOutStatus = false;
+   const bookToReturn = library.find((book) => book.ISBN === isbn);
+      if (bookToReturn.ISBN === isbn){
+         bookToReturn.checkOutStatus = false;
          console.log("book is returned");
-         break;
+         
       }else{
          console.log('no any book with that isbn exist');
       }
-   }
+   
 }
 
 returnBook(111111);
