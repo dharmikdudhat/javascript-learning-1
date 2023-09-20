@@ -8,12 +8,12 @@ function pow(x, n){
   return result;
 }
 
-let x = prompt("x?", ''), 
-    n = prompt("n?", '');
+let x = 5, 
+    n = 6;
 
 if (n <= 0) {
-  alert(`Power ${n} is not supported,
+  console.log(`Power ${n} is not supported,
   please enter an integer number greater than zero`);
 }else{
-  alert( pow(x, n) );
+  console.log( pow(x, n) );
 }
