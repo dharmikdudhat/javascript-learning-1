@@ -4,6 +4,7 @@ and ISBN and returns an object with the given details
 and a default checkedOut status of false.*/
 
 // Advanced task 1 part 1 : Each book can only be checked out a certain number of times. Add a property checkoutCount to each book and a constant MAX_CHECKOUTS (e.g., set to 3). 
+'use strict';
 
 function createBook(title, author, ISBN){
      let book = {
@@ -29,6 +30,7 @@ const book4 = createBook("script", "Mr.w", 444444);
  
 let library = [];
 
+
 library.push(book1);
 library.push(book2);
 library.push(book3);
@@ -52,15 +54,19 @@ searches the library for a book with that ISBN, and changes its checkedOut statu
 
 // Advanced task 1 part 1 : When a book is checked out using checkoutBook(isbn), increment the count. If it exceeds MAX_CHECKOUTS, don’t allow the checkout and inform the user
 
-function checkoutBook(isbn, dueDate){
+function checkoutBook(isbn){
    const bookToCheckOut = library.find((book) => book.ISBN === isbn);
 
       if (bookToCheckOut.ISBN === isbn){
          bookToCheckOut.checkOutCount += 1;
          if (bookToCheckOut.checkOutCount <= MAX_CHECKOUTS){
+            if(bookToCheckOut.checkOutStatus === false){
          bookToCheckOut.checkOutStatus = true;
          bookToCheckOut.dueDate = dueDate;
          console.log("book is checked out");
+      }else{
+         console.log("book has been already cheched out so try latter");
+      }
       }else{
          console.log(`This book is already been checked ${MAX_CHECKOUTS+1}`);
          bookToCheckOut.checkOutCount -= 1;
@@ -71,7 +77,7 @@ function checkoutBook(isbn, dueDate){
       }
     }
 
- checkoutBook(111111, "2012-01-12");
+ checkoutBook(111111);
 //  checkoutBook(111111, "2012-01-15");
 //  checkoutBook(111111, "2012-01-16");
 //  checkoutBook(111111, "2012-01-12");
@@ -103,21 +109,12 @@ console.table(library);
  and returns an array of books written by that author.*/
 
 function findBooksByAuthor(author){
-   let bookByAuthor = [];
-   for (let j in library ){
-      if (library[j].author.toLowerCase() === author){
-         bookByAuthor.push(library[j]);
-         break;
-      }else{
-         console.log("no book with that author name exist");
-      }
-
-      
-   }
-   console.table(bookByAuthor);
+   const bookOfAuthor = library.filter((book) => book.author === author);
+  
 }
 
-findBooksByAuthor("mr.x");
+const bookByAuthor = findBooksByAuthor("mr.x");
+console.table(bookByAuthor);
 
 // Add a property dueDate to each book that gets set when a book is checked out. Create a function listOverdueBooks() that returns books that are past their due date.
 
