@@ -182,3 +182,19 @@ getAverageRating(111111);
 // The function should return books where the title or author matches (or partially matches) the query. 
 //Implement this search in a case-insensitive manner.
 
+function searchBooks(query){
+   const lowercaseQuery = query.toLowerCase();
+   const matchedBooks = [];
+   for (let i=0 ;i<library.length;i++){
+      if (library[i].author.includes(lowercaseQuery)){
+         matchedBooks.push({...library[i]});
+      }else if(library[i].title.includes(lowercaseQuery)){
+         matchedBooks.push({...library[i]});
+      }else{
+      console.log("book not found");
+      }
+   }
+   console.table(matchedBooks);
+}
+
+searchBooks("mr.x");
