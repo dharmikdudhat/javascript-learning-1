@@ -149,9 +149,36 @@ listOverdueBooks();
 // Advanced task 1 part 3 Create functions rateBook(isbn, rating) to add a rating (from 1 to 5) and getAverageRating(isbn) to calculate a book's average rating.
 
 function rateBook(isbn , rating){
-   if (rating >= 1 && rating <= 5){
-      ratings.push(rating);
+   const bookToRate = library.find((book) => book.ISBN === isbn);
+   if (bookToRate.ISBN === isbn){
+      if (rating >= 1 && rating <= 5){
+         bookToRate.ratings.push(rating);
+         console.log(`you have rated ${rating} to ${bookToRate.title}.`);
+      }else{
+         console.log("enter between 1 to 5 to rate a book");
+      }
+   }else{
+      console.log('no such book exist');
    }
+   console.table(bookToRate.ratings);
+   //return ratings;
 }
 
+rateBook(111111 , 5);
+rateBook(111111 , 3);
+rateBook(111111 , 4);
+rateBook(111111 , 2);
+function getAverageRating(isbn) {
+   const bookToBeRated = library.find((book) => book.ISBN === isbn);
+   
+   const averageRating = bookToBeRated.ratings.reduce((sum, rating) => sum + rating, 0) / bookToBeRated.ratings.length;
+   
+   console.log(averageRating);
+   }
+
+getAverageRating(111111);
+
+// Write a function searchBooks(query) where query is a string.
+// The function should return books where the title or author matches (or partially matches) the query. 
+//Implement this search in a case-insensitive manner.
 
