@@ -3,7 +3,9 @@ that takes in a book's title, author,
 and ISBN and returns an object with the given details 
 and a default checkedOut status of false.*/
 
-// Advanced task 1 part 1 : Each book can only be checked out a certain number of times. Add a property checkoutCount to each book and a constant MAX_CHECKOUTS (e.g., set to 3). 
+// Advanced task 1 part 1 : Each book can only be checked out a certain number of times. 
+//Add a property checkoutCount to each book and a constant MAX_CHECKOUTS (e.g., set to 3).
+//Advanced task 1 part 3 Allow users to rate books. Each book should have a rating property, which is an array of numbers. 
 'use strict';
 
 function createBook(title, author, ISBN){
@@ -14,6 +16,7 @@ function createBook(title, author, ISBN){
         checkOutStatus : false,
         checkOutCount : 0,
         dueDate : null,
+        ratings : [],
      }
      console.table(book);
 
@@ -52,7 +55,8 @@ console.table(library);
 /* task 4 Write a function checkoutBook(isbn) that takes an ISBN number,
 searches the library for a book with that ISBN, and changes its checkedOut status to true.*/
 
-// Advanced task 1 part 1 : When a book is checked out using checkoutBook(isbn), increment the count. If it exceeds MAX_CHECKOUTS, don’t allow the checkout and inform the user
+// Advanced task 1 part 1 : When a book is checked out using checkoutBook(isbn), increment the count. 
+//If it exceeds MAX_CHECKOUTS, don’t allow the checkout and inform the user
 
 function checkoutBook(isbn){
    const bookToCheckOut = library.find((book) => book.ISBN === isbn);
@@ -61,17 +65,19 @@ function checkoutBook(isbn){
          bookToCheckOut.checkOutCount += 1;
          if (bookToCheckOut.checkOutCount <= MAX_CHECKOUTS){
             if(bookToCheckOut.checkOutStatus === false){
-         bookToCheckOut.checkOutStatus = true;
-         bookToCheckOut.dueDate = dueDate;
-         console.log("book is checked out");
-      }else{
-         console.log("book has been already cheched out so try latter");
-      }
-      }else{
+               bookToCheckOut.checkOutStatus = true;
+               const dueDate = new Date();
+               dueDate.setDate(dueDate.getDate() + 1);
+               //this.dueDate = dueDate;
+               console.log("book is checked out");
+            }else{
+               console.log("book has been already cheched out so try latter");
+            }
+         }else{
          console.log(`This book is already been checked ${MAX_CHECKOUTS+1}`);
          bookToCheckOut.checkOutCount -= 1;
          bookToCheckOut.checkOutStatus = false;
-      }
+          }
       }else{
          console.log('no any book with that isbn exist');
       }
@@ -91,9 +97,12 @@ function checkoutBook(isbn){
  function returnBook(isbn){
    const bookToReturn = library.find((book) => book.ISBN === isbn);
       if (bookToReturn.ISBN === isbn){
-         bookToReturn.checkOutStatus = false;
-         console.log("book is returned");
-         
+         if(bookToReturn.checkOutStatus === true){
+            bookToReturn.checkOutStatus = false;
+            console.log("book is returned");
+         }else{
+            console.log("book is already taken by someone");
+         }
       }else{
          console.log('no any book with that isbn exist');
       }
@@ -116,9 +125,10 @@ function findBooksByAuthor(author){
 const bookByAuthor = findBooksByAuthor("mr.x");
 console.table(bookByAuthor);
 
-// Add a property dueDate to each book that gets set when a book is checked out. Create a function listOverdueBooks() that returns books that are past their due date.
+// Advanced task 1 part 2 : Add a property dueDate to each book that gets set when a book is checked out. 
+//Create a function listOverdueBooks() that returns books that are past their due date.
 
-
+checkoutBook(111111);
 function listOverdueBooks() {
    const currentDate = new Date();
    const overdueBooks = [];
@@ -136,5 +146,12 @@ function listOverdueBooks() {
  
 listOverdueBooks();
 
+// Advanced task 1 part 3 Create functions rateBook(isbn, rating) to add a rating (from 1 to 5) and getAverageRating(isbn) to calculate a book's average rating.
+
+function rateBook(isbn , rating){
+   if (rating >= 1 && rating <= 5){
+      ratings.push(rating);
+   }
+}
 
 
