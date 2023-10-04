@@ -2,9 +2,16 @@
 
 // For instance:
 
-function f(x) {
-  alert(x);
-}
+function delay(f, ms) {
+
+    return function() {
+      setTimeout(() => f.apply(this, arguments), ms);
+    };
+  
+  }
+  
+  
+  
 
 // create wrappers
 let f1000 = delay(f, 1000);
