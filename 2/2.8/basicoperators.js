@@ -6,6 +6,9 @@ console.log( 2 ** 4 ); // 2⁴ = 16
 console.log( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
 console.log( 8 ** (1/3) ); // 2
 
+alert(2 + 2 + '1' ); // "41" and not "221"
+alert('1' + 2 + 2); // "122" and not "14"
+
 let s = "my" + "string";
 console.log(s); // mystring
 
