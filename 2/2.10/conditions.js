@@ -20,3 +20,16 @@ if (age < 3) {
   }
 
   console.log( message );
+
+  let result = condition ? value1 : value2;
+
+  let accessAllowed = (age > 18) ? true : false;
+
+  let age1 = prompt('age?', 18);
+
+let message = (age < 3) ? 'Hi, baby!' :
+  (age < 18) ? 'Hello!' :
+  (age < 100) ? 'Greetings!' :
+  'What an unusual age!';
+
+alert( message );

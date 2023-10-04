@@ -12,6 +12,9 @@ alert('1' + 2 + 2); // "122" and not "14"
 let s = "my" + "string";
 console.log(s); // mystring
 
+alert( +true ); // 1
+alert( +"" );   // 0
+
 let a, b, c;
 
 a = b = c = 2 + 2;
