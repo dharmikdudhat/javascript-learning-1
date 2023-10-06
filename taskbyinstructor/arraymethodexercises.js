@@ -109,29 +109,43 @@
 // console.log(firstelements(array1));
 
 //4. Write a JavaScript function to get the last element of an array. Passing the parameter 'n' will return the last 'n' elements of the array.
+// let n = 4;
+// function lastelement(arr){
+//     return arr.slice(-n)
+// }
+// let array1 = [1,2,3,4,5,6,7,8,9];
+// console.log(lastelement(array1));
 
-//its something else code if you wannna know where to place the the 4 its not anywhere else it is just below from here so check it out
-let arr1 = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-];
 
-function newine(arr){
-    let x = 0, y = arr.length -1;
-    while(x < y){
-        for (let i = 0; i < y - x ; i++){
-            let t = x;
-            let b = y;
-            let tl = arr[t][x + i];
-             arr[t][x + i] = arr[y - i][x];
-             arr[y - i][x] = arr[b][y - i];
-             arr[y][y - i] = arr[t + i][y];
-             arr[t + i][y] = tl;
-        }
-        x++;
-        y--;
-    }
-}
+//1. Write a function to find the unique elements in an array.
 
-console.log(newine(arr1));
+// function uniuqe(arr){
+//     return [...new Set(arr)];
+// }
+// let array1 = [1,2,3,4,5,5,3,5,33,2,3,4,2,1,5,2,6,7,8,9];
+//  console.log(uniuqe(array1));
+
+
+//3. Write a function to find the difference between two arrays.
+
+// function findDifference(array1, array2) {
+//     return array1.filter((element) => !array2.includes(element));
+//   }
+
+//   let array1 = [1,2,3,4,5,5,3,5,33,2,3,4,2,1,5,2,6,7,8,9];
+//   let array2 = [1,2,3,4,5,6,6,7,8,4,9];
+//  console.log(findDifference(array1,array2));
+
+//4. Write a function to remove all empty elements from an array.
+
+// function empty(arr){
+//     return arr.filter(Boolean);
+// }
+// let array1 = ['','','',2,4,5,,6,7,{},[],NaN,undefined,null];
+// console.log(empty(array1));
+
+//5. Write a function to sort an array of objects based on a given property.
+
+// function sortObjectsByProperty(array, property) {
+//     array.sort((a, b) => a[property] - b[property]);
+//   } 
