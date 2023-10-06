@@ -7,7 +7,7 @@
 // let array1 = [1,2,3,6,4,5,7,8,9,10,11,21,23,848,68,618,68686,6,66,,661,6,6,6,987,454,86] 
 // console.log(even(array1));
 
-//Exercise 2: Write a function that takes an array of strings and returns a new array containing only the strings that start with the letter "A".
+// Exercise 2: Write a function that takes an array of strings and returns a new array containing only the strings that start with the letter "A".
 
 // function letterA(arr){
     
@@ -149,3 +149,35 @@
 // function sortObjectsByProperty(array, property) {
 //     array.sort((a, b) => a[property] - b[property]);
 //   } 
+
+// Write a function to find the second largest element in an array.
+
+function second(arr){
+    // let max = Math.max(...arr);
+    // console.log(max);
+    // arr.pop(max);
+    // console.log(max);
+    let x = arr.sort((a,b) => a - b );
+    console.log(x[x.length - k]);
+}
+let k = 3;
+second([1,2,3,4,5,6,3,2,1,4,3,2]);
+
+
+// Write a function to find the pairs of elements in an array that sum to a given value.
+// Write a function to rotate an array by a given number of positions.
+// Write a function to shuffle an array.
+// Write a function to find the longest common substring of two arrays.
+// Write a function to find the kth largest element in an array.
+// Write a function to find the median of an array.
+// Write a function to find the mode of an array.
+// Write a function to find the missing number in an array of sequential numbers.
+// Write a function to find the duplicate elements in an array.
+// Write a function to find the unique elements in an array, preserving the original order.
+// Write a function to find the intersection of two arrays, preserving the original order.
+// Write a function to find the difference between two arrays, preserving the original order.
+// // Write a function to find the most frequent element in an array.
+
+// function mostfre(arr){
+
+// }
