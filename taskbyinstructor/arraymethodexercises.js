@@ -4,13 +4,13 @@
 //    return arr.filter(item => item % 2 == 0);
 // }
 
-// let array1 = [1,2,3,6,4,5,7,8,9,10,11,21,23,848,68,618,68686,6,66,,661,6,6,6,987,454,86] 
+// let array1 = [1,2,3,6,4,5,7,8,9,10,11,21,23,848,68,618,68686,6,66,,661,6,6,6,987,454,86]
 // console.log(even(array1));
 
 // Exercise 2: Write a function that takes an array of strings and returns a new array containing only the strings that start with the letter "A".
 
 // function letterA(arr){
-    
+
 //     return arr.filter(item => item.toLowerCase().at(0) == 'a');
 // }
 // console.log(letterA(["dharmik" , "dhaval" , "prachi" , "abhishek" , "Abhishek"]));
@@ -18,7 +18,7 @@
 //Exercise 3: Write a function that takes an array of objects and returns a new array containing only the objects that have a property named "age" and a value greater than 18.
 
 // function agegreater(arr){
-    
+
 //          return arr.filter(item => item.age > 18);
 //      }
 //      console.log(agegreater([
@@ -42,7 +42,7 @@
 //                 name: "Bob Ziroll",
 //                 age: 100
 //             }
-//         ])); 
+//         ]));
 
 //Exercise 4: Write a function that takes an array of numbers and returns the sum of all the numbers in the array.
 
@@ -67,17 +67,17 @@
 // }
 
 
-//write a function that gives random n elemnts from an array 
+//write a function that gives random n elemnts from an array
 // let n = 6;
 // let array1 = [1,2,3,4,5,6,7,8,9,10,11,21,23,45,56,47,33];
 // function newone(arr){
 //     let array2 = [];
 //     for (i= 0 ;i < n;i++){
-    
-//     let item = arr.splice(Math.random()*arr.length, 1); 
+
+//     let item = arr.splice(Math.random()*arr.length, 1);
 //     check(item);
 //     function check(item){
-       
+
 //         if(array2.includes(item)){
 //             check(item);
 //         }else{
@@ -148,29 +148,149 @@
 
 // function sortObjectsByProperty(array, property) {
 //     array.sort((a, b) => a[property] - b[property]);
-//   } 
+//   }
 
 // Write a function to find the second largest element in an array.
 
-function second(arr){
-    // let max = Math.max(...arr);
-    // console.log(max);
-    // arr.pop(max);
-    // console.log(max);
-    let x = arr.sort((a,b) => a - b );
-    console.log(x[x.length - k]);
-}
-let k = 3;
-second([1,2,3,4,5,6,3,2,1,4,3,2]);
+// function second(arr){
+//     // let max = Math.max(...arr);
+//     // console.log(max);
+//     // arr.pop(max);
+//     // console.log(max);
+//     let x = arr.sort((a,b) => a - b );
+//     console.log(x[x.length - k]);
+// }
+// let k = 5;
+// second([1,2,3,4,5,6,3,2,1,4,3,2]);
 
 
 // Write a function to find the pairs of elements in an array that sum to a given value.
+
+// function sum(array , sumtofind){
+//     for(let i = 0; i < array.length ; i++){
+//         for( let j = 1;j< array.length;j++){
+//             if(array[i] + array[j] === sumtofind){
+//                 console.log(array[i],array[j]);
+//             }
+//         }
+//         // let k = sumtofind - array[i];
+//         // if (array.includes(k)){
+//         //     console.log(i,k);
+//         //  }//else{
+//         //     console.log("no such element with that sum exists");
+//         // }
+//     }
+    
+// }
+
+// let arr = [2,3,4,5,6];
+// let x = arr.sort(( a, b) => a - b);
+// console.log(sum(arr , 8));
+
+
+
 // Write a function to rotate an array by a given number of positions.
+// let array2 = [];
+// function rotate(arr , noofposition){
+//     for (let i = 0; i < arr.length ;i++){
+//         array2[(i + noofposition ) % arr.length] = arr[i];
+//     }
+//     return array2;
+// }
+
+// let array = [1,2,3,4,5,60];
+// console.log(rotate(array, 2));
+
+
 // Write a function to shuffle an array.
-// Write a function to find the longest common substring of two arrays.
+
+/* function suffle(arr){
+    for (let i = 0;i < arr.length;i++){
+        let rand = Math.floor(Math.random() * arr.length);
+        if(rand !== i){
+            let x = arr[i];
+            arr[i] = arr[rand];
+            arr[rand] = x;
+        } 
+    }
+    return arr;
+}
+let array = [1,2,3,4,5,60];
+console.log(suffle(array));
+ */
+
+
+
+// Write a function to find the longest common substring of two arrays.///doubt question
+
+// function longestcommonSubstring(arr1 ,arr2){
+//     let arra3 = [];
+//     for(let i = 0; i < arr1.length;i++){
+//         let count = 0;
+       
+//         for(let j = 0; j < arr2.length ; j++){
+//             if (arr1[i] === arr2[j]){
+//                 count++;
+//             }
+//         }
+
+//         arra3.push({i : count});
+//     }
+
+//     return arra3;
+// }
+
+// let arr1 = [ "dharmik","parth"];
+// let arr2 = ["dharmik" , "dharmik" , 'dharmik'];
+// console.log(longestcommonSubstring(arr1,arr2));
+
 // Write a function to find the kth largest element in an array.
+
+
+// function klargest(arr , k){
+//     arr.sort((a,b) => b - a);
+//     return arr[k-1];
+// }
+// let array = [1,2,3,5,7,65,87,45,98,64,32];
+// console.log(klargest(array,4));
+
 // Write a function to find the median of an array.
+
+// function median(arr){
+   
+//         let mid = Math.floor(arr.length / 2);
+//         return arr[mid];
+    
+// }
+
+// array = [1,2,3,4,5,6,7,8,9];
+// console.log(array.length);
+// console.log(median(array));
+
+
 // Write a function to find the mode of an array.
+
+function mode(arr){
+    let count = 0;
+    let map = new Map();
+    for(let i = 0 ; i < arr.length; i++){
+        for (let j = 1; j < arr.length;j++) {
+          if(arr[i] === arr[j]){
+            count++;
+          }
+        }
+        if(!array1.includes(count)){
+            array1.push([arr[i],count]);
+        }
+    } 
+    console.log(array1);
+    return Math.max(array1.arr[i]);
+}
+
+let arra = [1,23,3,4,5,6,2,1,3,2,1,232,1,2,3,2,1,1,2,3,2,2,3];
+console.log(mode(arra)); 
+
+
 // Write a function to find the missing number in an array of sequential numbers.
 // Write a function to find the duplicate elements in an array.
 // Write a function to find the unique elements in an array, preserving the original order.
@@ -181,3 +301,38 @@ second([1,2,3,4,5,6,3,2,1,4,3,2]);
 // function mostfre(arr){
 
 // }
+
+
+// make a bmi calculator using switch case
+
+// let weight  = 60;
+// let height  = 1.25;
+//  let BMI = ( weight / (height * height) );
+//  console.log(`BMI = ${BMI} kg/(m*m)`);
+//  
+// switch (true) {
+//   case (BMI <= 16) :
+//     console.log("Severe Thinness");
+//     break;
+//     case (BMI <= 17) :
+//       console.log("Moderate Thinness");
+//          break;
+//       case (BMI <= 18) :
+//       console.log("Mild Thinness");
+//         break;
+//       case (BMI <= 25) :
+//       console.log("Normal");
+//         break;
+//       case (BMI <= 30) :
+//       console.log("Overweight");
+//         break;
+//       case (BMI <= 35) :
+//       console.log("Obese Class I");
+//         break;
+//       case (BMI <= 40) :
+//       console.log("Obese Class II");
+//         break;
+//       case (BMI > 40) :
+//       console.log("Obese Class III");
+//         break;
+// };
