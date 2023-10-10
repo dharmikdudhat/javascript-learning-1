@@ -5,17 +5,24 @@
 // Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
 // Return k.
 
-let nums = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2];
-let newnums = [];
+let numsa = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2];
+//let array2 = [];
+
+function  removeDuplicates  (nums) {
 
 
-for(let i = 0; i < nums.length;i++){
-    while(i < nums.length-1 && nums[i] == nums[i+1])
-    {i++};
-    newnums.push(nums[i]);
-    
+    //let nums = [1,1,2];
+    //let newnums = [];
+
+
+    let i = 0;
+    for (let j = 1; j < nums.length; j++) {
+      if (nums[i] !== nums[j]) {
+        i++;
+        nums[i] = nums[j];
+      }
+    }
+    return i + 1;
 };
-nums = newnums;
-let k = nums.length;
-console.log(k);
-console.log(nums);
+
+console.log(removeDuplicates(numsa));
