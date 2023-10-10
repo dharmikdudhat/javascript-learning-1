@@ -1,2 +1,4 @@
 missing number from an array//cleared
 
+https://www.w3resource.com/javascript-exercises/javascript-basic-exercises.php  // 7
+
