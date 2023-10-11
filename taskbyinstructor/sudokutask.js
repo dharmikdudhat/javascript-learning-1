@@ -16,49 +16,57 @@ let board = [
   [".", ".", ".", ".", "8", ".", ".", "7", "9"],
 ];
 // for rows
-
-for (i = 0; i < 9; i++) {
-  for (j = 0; j < 9; j++) {
-    let x = [];
-    if (
-      board[i][j] != "." &&
-      !x.includes(board[i][j]) &&
-      1 <= board[i][j] &&
-      board[i][j] <= 9
-    ) {
-      x.push(board[i][j]);
-    } else if (board[i][j] < 1 && board[i][j] > 9) {
-      console.log(`wrong digit entered at ${(i, j)} which is ${board[i][j]} `);
-    } /* else{
+function row(array) {
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      let x = [];
+      if (
+        board[i][j] != "." &&
+        !x.includes(board[i][j]) &&
+        1 <= board[i][j] &&
+        board[i][j] <= 9
+      ) {
+        x.push(board[i][j]);
+      } else if (board[i][j] < 1 && board[i][j] > 9) {
+        console.log(
+          `wrong digit entered at ${(i, j)} which is ${board[i][j]} `
+        );
+      } /* else{
         console.log("already written number in row");
     } */
+    }
   }
+  return true;
 }
 
-for (i = 0; i < 9; i++) {
-  let x = [];
-  for (j = 0; j < 9; j++) {
-    if (
-      board[j][i] != "." &&
-      !x.includes(board[j][i]) &&
-      1 <= board[j][i] &&
-      board[j][i] <= 9
-    ) {
-      x.push(board[j][i]);
-    } else if (board[j][i] < 1 && board[j][i] > 9) {
-      console.log(`wrong digit entered at ${(i, j)} which is ${board[j][i]} `);
-    } /* else{
+function column(array) {
+  for (let i = 0; i < 9; i++) {
+    let x = [];
+    for (let j = 0; j < 9; j++) {
+      if (
+        board[j][i] != "." &&
+        !x.includes(board[j][i]) &&
+        1 <= board[j][i] &&
+        board[j][i] <= 9
+      ) {
+        x.push(board[j][i]);
+      } else if (board[j][i] < 1 && board[j][i] > 9) {
+        console.log(
+          `wrong digit entered at ${(i, j)} which is ${board[j][i]} `
+        );
+      } /* else{
           console.log("already written number in row");
       } */
+    }
+    return true;
+    //console.log(x);
   }
-  //console.log(x);
 }
-
 
 function box(row, column, array) {
   let x = [];
-  for (i = row; i < row + 3; i++) {
-    for (j = column; j < column + 3; j++) {
+  for (let i = row; i < row + 3; i++) {
+    for (let j = column; j < column + 3; j++) {
       if (
         board[i][j] != "." &&
         !x.includes(board[i][j]) &&
@@ -73,8 +81,14 @@ function box(row, column, array) {
       }
     }
   }
-  return x;
+  return true;
 }
 
-let x = box(0, 0, board);
-console.log(x);
+for (let i = 0; i < 3; i++) {
+  
+  for (let j = 0; j < 3; j++) {
+    let x = box(3 * i, j * 3, board);
+    console.log(x);
+  }
+  console.log(i);
+}
