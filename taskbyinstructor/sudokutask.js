@@ -55,10 +55,10 @@ for (i = 0; i < 9; i++) {
 }
 
 
-function box(row, column) {
-  for (i = row; i < row + 3; row++) {
-    for (j = column; j < column + 3; column++) {
-      let x = [];
+function box(row, column, array) {
+  let x = [];
+  for (i = row; i < row + 3; i++) {
+    for (j = column; j < column + 3; j++) {
       if (
         board[i][j] != "." &&
         !x.includes(board[i][j]) &&
@@ -71,8 +71,10 @@ function box(row, column) {
           `wrong digit entered at ${(i, j)} which is ${board[i][j]} `
         );
       }
-      console.log(x);
     }
   }
+  return x;
 }
 
+let x = box(0, 0, board);
+console.log(x);
