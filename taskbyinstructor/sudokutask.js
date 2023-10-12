@@ -4,6 +4,11 @@ Each column must contain the digits 1-9 without repetition.//done
 Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
 Think at your own don't take help from others */
 
+ 
+//leet code question number == 36  
+
+
+
 let board = [
   ["8", "3", ".", ".", "7", ".", ".", ".", "."],
   ["6", ".", ".", "1", "9", "5", ".", ".", "."],
