@@ -5,22 +5,22 @@ Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without
 Think at your own don't take help from others */
 
 let board = [
-  ["5", "3", ".", "12", "7", ".", ".", ".", "."],
-  ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-  [".", "9", "8", ".", ".", ".", ".", "6", "."],
-  ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-  ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
-  ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-  [".", "6", ".", ".", ".", ".", "2", "8", "."],
-  [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-  [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+  [".", ".", "4", ".", ".", ".", "6", "3", "."],
+  [".", ".", ".", ".", ".", ".", ".", ".", "."],
+  ["5", ".", ".", ".", ".", ".", ".", "9", "."],
+  [".", ".", ".", "5", "6", ".", ".", ".", "."],
+  ["4", ".", "3", ".", ".", ".", ".", ".", "1"],
+  [".", ".", ".", "7", ".", ".", ".", ".", "."],
+  [".", ".", ".", "5", ".", ".", ".", ".", "."],
+  [".", ".", ".", ".", ".", ".", ".", ".", "."],
+  [".", ".", ".", ".", ".", ".", ".", ".", "."],
 ];
 // for rows
 function validSudoku(array) {
   for (let i = 0; i < 9; i++) {
+    let x = new Set();
+    let y = new Set();
     for (let j = 0; j < 9; j++) {
-      let x = new Set();
-      let y = new Set();
       if (
         board[i][j] !== "." &&
         !x.has(board[i][j]) &&
@@ -44,11 +44,12 @@ function validSudoku(array) {
         console.log(`Invalid value in row ${i}, column ${j}: ${board[j][i]}`);
         return false;
       }
+      console.log(y);
     }
   }
 
-  for (let row; row < 3; row++) {
-    for (let column; column < 3; column++) {
+  for (let row = 0; row < 3; row++) {
+    for (let column = 0; column < 3; column++) {
       let z = new Set();
       for (let i = 3 * row; i < 3 * row + 3; i++) {
         for (let j = 3 * column; j < 3 * column + 3; j++) {
