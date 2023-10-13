@@ -55,4 +55,32 @@ let coffeeMachine = new CoffeeMachine(100);
 
 alert(`Power is: ${coffeeMachine.power}W`); // Power is: 100W */
 
+/* 
+There’s a finished JavaScript proposal, almost in the standard, that provides language-level support for private properties and methods.
+
+Privates should start with #. They are only accessible from inside the class.
+
+For instance, here’s a private #waterLimit property and the water-checking private method #fixWaterAmount:
+ */
+
+/* class CoffeeMachine {
+  #waterLimit = 200;
+
+  #fixWaterAmount(value) {
+    if (value < 0) return 0;
+    if (value > this.#waterLimit) return this.#waterLimit;
+  }
+
+  setWaterAmount(value) {
+    this.#waterLimit = this.#fixWaterAmount(value);
+  }
+
+}
+
+let coffeeMachine = new CoffeeMachine();
+
+// can't access privates from outside of the class
+coffeeMachine.#fixWaterAmount(123); // Error
+coffeeMachine.#waterLimit = 1000; // Error */
+
 
