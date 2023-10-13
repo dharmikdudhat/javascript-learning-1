@@ -6,7 +6,9 @@ function intersection(arr1, arr2) {
         result.push(arr1[i]);
         
       }
-      else {
+      else if(arr1[i] !== arr2[j]){
+        continue;
+      }else{
         result.splice(i,1);
       }
     }
