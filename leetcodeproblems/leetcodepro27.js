@@ -8,17 +8,15 @@ let nums = [3,2,2,3];
 let val = 3;
 
 let removeElement = function(nums, val) {
-    let newne = nums;
-    for(i = 0;i < newne.length;i++){
-        if (val != newne[i]){
-            nums.splice(i,1);
-            nums.push(newne[i]);
-        }else{
-            nums.splice(i,1);
+    let j = 0;
+    for(let i = 0;i < nums.length;i++){
+        if (val !== nums[i]) {
+            nums[j] = nums[i];
+            j++;
         }
     };
     return nums;
-    
+ 
 };
 
 console.log(removeElement(nums,val));
