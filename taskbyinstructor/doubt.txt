@@ -2,3 +2,6 @@ missing number from an array//cleared
 
 https://www.w3resource.com/javascript-exercises/javascript-basic-exercises.php  // 7
  in set if i add two object 
+
+
+https://www.faceprep.in/c/pattern-programs-in-c/

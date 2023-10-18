@@ -5,7 +5,9 @@ var maxArea = function(height) {
         for (let j = 0; j < height.length;j++){
             if(i == j){
                 continue;
-            }else
+            }else{
+                
+            }
         }
     }
 };
