@@ -27,7 +27,7 @@ Return the number of unique good subsequences of binary. Since the answer may be
 A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
  */
 
-function binary(arr) {
+/* function binary(arr) {
   let newone = [];
   newone.push(arr.split(""));
   let x = [];
@@ -38,3 +38,10 @@ function binary(arr) {
     }
   }
 }
+ */
+
+// Write a JS code to delete all occurrence of element in given array
+let array = [1,2,1,2,11,11,111,1,8,8,8,8,"8","a","a","a","@","@"];
+let newarray = array.filter((char, dup) => array.indexOf(char) === dup);
+
+console.log(newarray);
